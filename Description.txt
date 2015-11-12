@@ -1,8 +1,8 @@
-﻿Group: Misc
+Group: Misc
 FriendlyName: Cache Analytics
 SystemName: Misc.CacheAnalytics
 Version: 1.1
-SupportedVersions: 3.30, 3.40
+SupportedVersions: 3.60
 Author: Tom van Enckevort
 DisplayOrder: 1
 FileName: Nop.Plugin.Misc.CacheAnalytics.dll
