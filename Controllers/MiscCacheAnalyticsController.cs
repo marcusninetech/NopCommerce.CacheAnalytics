@@ -34,7 +34,7 @@ namespace Nop.Plugin.Misc.CacheAnalytics.Controllers
 
         #region Memory Cache
 
-        private IEnumerable<CacheItemModel> GetCacheItems()
+        private IEnumerable<CacheItemModel> GetCacheItems(string q = null)
         {
             var list = new List<CacheItemModel>();
 
@@ -137,7 +137,11 @@ namespace Nop.Plugin.Misc.CacheAnalytics.Controllers
 
                                     if (cacheItem.Key != null && cacheItem.Value != null)
                                     {
-                                        list.Add(cacheItem);
+                                        if(string.IsNullOrEmpty(q))
+                                            list.Add(cacheItem);
+                                        else if(cacheItem.Key.Contains(q))
+                                            list.Add(cacheItem);
+
                                     }
                                 }
                             }
@@ -174,8 +178,8 @@ namespace Nop.Plugin.Misc.CacheAnalytics.Controllers
         [HttpPost]
         public ActionResult CacheItems(DataSourceRequest command)
         {
-            var cacheItems = GetCacheItems();
-
+            var cacheItems = GetCacheItems(Request.QueryString["q"]);
+            
             var model = new DataSourceResult()
             {
                 Data = cacheItems

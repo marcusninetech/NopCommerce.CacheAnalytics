@@ -1,4 +1,4 @@
-Group: Misc
+﻿Group: Misc
 FriendlyName: Cache Analytics
 SystemName: Misc.CacheAnalytics
 Version: 1.1

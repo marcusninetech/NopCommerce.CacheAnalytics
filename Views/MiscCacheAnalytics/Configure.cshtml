@@ -44,7 +44,7 @@
                                 type: "json",
                                 transport: {
                                     read: {
-                                        url: "@Html.Raw(Url.Action("CacheItems", "MiscCacheAnalytics", new RouteValueDictionary() { { "Namespaces", "Nop.Plugin.Misc.CacheAnalytics.Controllers" }, { "area", "" } }))",
+                                        url: "@Html.Raw(Url.Action("CacheItems", "MiscCacheAnalytics", new RouteValueDictionary() { { "q", Request.QueryString["q"] }, { "Namespaces", "Nop.Plugin.Misc.CacheAnalytics.Controllers" }, { "area", "" } }))",
                                         type: "POST",
                                         dataType: "json"
                                     },
